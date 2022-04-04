@@ -10,7 +10,7 @@ public class CaesarCipher implements CipherInterface {
     private List<Character> characterList = Arrays.asList('.', ',', '«', '»',
             ':', '!', '?', ' ', '\n', '"');
 
-    private static final HashMap<Character, String> charRules = new HashMap<>() {{
+    private static final HashMap<Character, String> CHAR_RULES = new HashMap<>() {{
         put(',', ", ");
         put('.', ". ");
         put('«', " «");
@@ -92,7 +92,7 @@ public class CaesarCipher implements CipherInterface {
                 continue;
             }
 
-            for (Map.Entry<Character, String> charRule : charRules.entrySet()) {
+            for (Map.Entry<Character, String> charRule : CHAR_RULES.entrySet()) {
                 int foundSpecialChars = StringUtils.countMatches(decryptedStr, charRule.getKey());
                 if (foundSpecialChars == 0) {
                     continue;
